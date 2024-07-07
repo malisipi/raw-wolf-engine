@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Raw Wolf Engine</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <style>
+        body {
+            background: #222222;
+        }
+        canvas {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            aspect-ratio: 16/9;
+            transform: translate(-50%, -50%);
+        }
+        @media (min-aspect-ratio: 16/9) {
+            canvas {
+                height: 100dvh;
+            }
+        }
+        @media (max-aspect-ratio: 16/9) {
+            canvas {
+                width: 100dvw;
+            }
+        }
+        @media (aspect-ratio: 16/9) {
+            canvas {
+                height: 100dvh;
+                width: 100dvw;
+            }
+        }
+    </style>
+</head>
+<body oncontextmenu="event.preventDefault()">
+    <canvas id="canvas"></canvas>
+    <script type='text/javascript'>
+    let canvas = document.querySelector("#canvas");
+    canvas.addEventListener("webglcontextlost", function(e) {
+        alert('WebGL context lost. You will need to reload the page.');
+        e.preventDefault();
+    }, false);
+
+    var Module = {
+        canvas: canvas
+    };
+    </script>
+    <script async type="text/javascript" src="index.js"></script>
+</body>
+</html>
