@@ -22,4 +22,27 @@ The engine is written in C++17 and can be compiled with GCC, Clang and Emscripte
 * Storage Mechanism for loading/saving game data
 
 ## Examples that developed with the engine:
+
+> You can browse examples directory to learn how to use the engine.
+
+| | | |
+|-|-|-|
+|![](./screenshots/1.png)|![](./screenshots/2.png)|![](./screenshots/3.png)|
+
+> You can compile with the command: ```clang++ -std=c++17 -Isrc -I. ./examples/example1.cpp -o example1.out -lSDL2 -lSDL2_ttf -lSDL2_image```
+
+### Real World Examples:
+
 * [Flying Doge](https://malisipi.itch.io/flying-doge) - Not open-sourced yet
+
+# License
+
+The library is licensed by [MPL 2.0 License](./LICENSE).
+
+## Dependencies:
+
+* [Miniaudio](https://github.com/mackron/miniaudio) (Located on `./thirdparty/miniaudio.h`) - Licensed by [Public Domain](https://github.com/mackron/miniaudio/blob/master/LICENSE)
+* [Noto Sans](https://fonts.google.com/noto/specimen/Noto+Sans) (Located on `./examples/assets/fonts/NotoSans-Medium.ttf`) - Licensed by [Open Font License](https://fonts.google.com/noto/specimen/Noto+Sans/about)
+
+## Optional Dependencies:
+* [Discord Game SDK](https://discord.com/developers/docs/game-sdk/discord) (not included)
