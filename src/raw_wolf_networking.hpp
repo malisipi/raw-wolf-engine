@@ -1,4 +1,3 @@
-#define RAW_WOLF_MULTI_USER
 #ifdef RAW_WOLF_MULTI_USER
 #define CROW_MAIN
     #include "thirdparty/crow_all.h"

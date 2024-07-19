@@ -15,6 +15,7 @@ namespace raw_wolf::drawer {
         if(scaled_x < 0 || scaled_x > scaling::width) return;
         int scaled_y = (event.y-empty_y_area)/scale;
         if(scaled_y < 0 || scaled_y > scaling::height) return;
+        if(window::mouse_handler == NULL) return;
         window::mouse_handler(MouseEvent {
             .x = scaled_x,
             .y = scaled_y,
@@ -60,6 +61,18 @@ namespace raw_wolf::drawer {
         );
         SDL_Rect rect = scaled_sdl_rect(x, y, width, height);
         SDL_RenderFillRect(window::renderer, &rect);
+    }
+
+    void line(int x1, int y1, int x2, int y2, uint color) {
+        SDL_SetRenderDrawColor(window::renderer,
+            uint_color_red(color),
+            uint_color_green(color),
+            uint_color_blue(color),
+            uint_color_alpha(color)
+        );
+        SDL_Rect r1 = scaled_sdl_rect(x1, y1, 0, 0);
+        SDL_Rect r2 = scaled_sdl_rect(x2, y2, 0, 0);
+        SDL_RenderDrawLine(window::renderer, r1.x, r1.y, r2.x, r2.y);
     }
 
     SDL_Texture* load_bmp_image(char* path){
