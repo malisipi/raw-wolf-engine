@@ -208,3 +208,4 @@ namespace raw_wolf {
 #include <raw_wolf_welcome.hpp>
 #include <raw_wolf_audio.hpp>
 #include <raw_wolf_tools.hpp>
+#include <raw_wolf_networking.hpp>

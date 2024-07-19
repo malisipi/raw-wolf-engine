@@ -14,6 +14,7 @@ The engine is written in C++17 and can be compiled with GCC, Clang and Emscripte
 * Audio API over miniaudio
 * Discord Activity Integration (Discord Game SDK is required)
 * And some basic functions
+* Multi User Support
 
 ## Will supported in future:
 * Gamepad API (like Dualshock)
@@ -25,11 +26,21 @@ The engine is written in C++17 and can be compiled with GCC, Clang and Emscripte
 
 > You can browse examples directory to learn how to use the engine.
 
+### Basic
+
 | | | |
 |-|-|-|
 |![](./screenshots/1.png)|![](./screenshots/2.png)|![](./screenshots/3.png)|
 
-> You can compile with the command: ```clang++ -std=c++17 -Isrc -I. ./examples/example1.cpp -o example1.out -lSDL2 -lSDL2_ttf -lSDL2_image```
+> ```clang++ -std=c++17 -Isrc -I. ./examples/basic.cpp -o basic.out -lSDL2 -lSDL2_ttf -lSDL2_image```
+
+### Multi User
+
+![](./screenshots/4.png)
+
+> ```clang++ -std=c++17 -Isrc -I. ./examples/multi_user.cpp -lcurl -o multi_user1.out -lSDL2 -lSDL2_ttf -lSDL2_image -DCLIENT_1 && ./multi_user1.out```
+
+> ```clang++ -std=c++17 -Isrc -I. ./examples/multi_user.cpp -lcurl -o multi_user2.out -lSDL2 -lSDL2_ttf -lSDL2_image -DCLIENT_2 && ./multi_user2.out```
 
 ### Real World Examples:
 
@@ -42,6 +53,7 @@ The library is licensed by [MPL 2.0 License](./LICENSE).
 ## Dependencies:
 
 * [Miniaudio](https://github.com/mackron/miniaudio) (Located on `./thirdparty/miniaudio.h`) - Licensed by [Public Domain](https://github.com/mackron/miniaudio/blob/master/LICENSE)
+* [Crow](https://github.com/CrowCpp/Crow) (Located on `./thirdparty/crow_all.h`) - Licensed by [BSD 3-Clause License](https://github.com/CrowCpp/Crow/blob/master/LICENSE)
 * [Noto Sans](https://fonts.google.com/noto/specimen/Noto+Sans) (Located on `./examples/assets/fonts/NotoSans-Medium.ttf`) - Licensed by [Open Font License](https://fonts.google.com/noto/specimen/Noto+Sans/about)
 
 ## Optional Dependencies:
