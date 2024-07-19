@@ -18,6 +18,8 @@
 #error You must define client with -DCLIENT_1 or -DCLIENT_2
 #endif
 
+std::string url;
+
 namespace game {
     namespace var {
         const int size = 50;
@@ -105,9 +107,6 @@ namespace game {
         static raw_wolf::TextTexture* info_text_3 = raw_wolf::simple_ui::static_text((char*)"Use mouse to jump");
         raw_wolf::text::draw(info_text_3, 20, 670, 0, 30);
 
-        char url_buff[128];
-        sprintf(url_buff, "http://0.0.0.0:%d/pos", HIM_PORT);
-        std::string url = url_buff;
         std::string the_pos = raw_wolf::networking::fetch(url);
         if(the_pos != "") {
             const char split[2] = ",";
@@ -135,6 +134,9 @@ int main(){
         ss << game::var::x << "," << game::var::y;
         return ss.str();
     });
+    char url_buff[128];
+    sprintf(url_buff, "http://0.0.0.0:%d/pos", HIM_PORT);
+    url = url_buff;
     raw_wolf_networking_routing_run(MY_PORT);
     for(;;){
         void* state = raw_wolf::loop(raw_wolf::welcome::welcome);
